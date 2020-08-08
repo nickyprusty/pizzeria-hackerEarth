@@ -1,1 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Muli', 'Helvetica', 'Arial', 'sans-serif';
+}
+
+a {
+  color: #fdcc52;
+  transition: all .35s;
+}
+
+
+
+header.masthead {
+  position: relative;
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  color: white;
+  background: url("assets/img/illustration1.png"), #7b4397;
+  background: url("assets/img/illustration1.png"), linear-gradient(to left, #7b4397, #dc2430);
+}
+
+header.masthead .header-content {
+  max-width: 500px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #222222;
+}
+
+footer p {
+  font-size: 12px;
+  margin: 0;
+}
+
+footer ul {
+  margin-bottom: 0;
+}
+
+footer ul li a {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li a.active {
+  text-decoration: none;
+}
+
+.bg-primary {
+  background: #fdcc52;
+  background: linear-gradient(#fdcc52, #fdc539);
+}
+
+.text-primary {
+  color: #fdcc52;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.btn-outline {
+  color: white;
+  border: 1px solid;
+  border-color: white;
+}
+
+.btn-outline:hover, .btn-outline:focus, .btn-outline:active, .btn-outline.active {
+  color: white;
+  border-color: #fdcc52;
+  background-color: #fdcc52;
+}
+
+.btn {
+  border-radius: 300px;
+  font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.btn-xl {
+  font-size: 11px;
+  padding: 15px 45px;
+}
+.card-img-overlay{
+    position: relative !important;
+}
+.card-img{
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.bg-dark-custom{
+    background-color: #f3f4f57d;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
