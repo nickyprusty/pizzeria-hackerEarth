@@ -1,35 +1,74 @@
-<header class="masthead p-5">
-  <div class="container h-100 p-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <div class="form-group has-search">
-          <span class="fa fa-search form-control-feedback"></span>
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
+<section class="page_404" *ngIf="displayError">
+	<div class="container">
+		<div class="row">	
+		<div class="col-sm-12 ">
+		<div class=" text-center">
+		<div class="four_zero_four_bg">
+		
+		
+		</div>
+		
+		<div class="contant_box_404">
+		<h3 class="h2">
+		Look like you're lost
+		</h3>
+		
+		<p>the page you are looking for not avaible!</p><br/><br/>
+		
+	</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</section>
+<section *ngIf="!displayError">
+  <header class="masthead p-lg-5">
+  
+    <div class="container-fluid h-100 p-lg-5" >
+      <div *ngIf="!recipiesForDisplay" class="row h-100"> 
+        <app-loader></app-loader>
       </div>
-    </div>
-    <div class="row p-5  h-100">
-      
-      <div class="col-md-12">
-        <div class="card-columns">
-          <div class="card bg-dark-custom text-dark" *ngFor="let data of recipies">
-            <img class="card-img" src="{{data.image}}" alt="Card image">
-            <div class="card-img-overlay bg-dark-custom text-dark">
-              <h4 class="card-title ">{{data.name}}</h4>
-              <h6>
-                <span *ngIf="data.category !== ''">{{data.category | titlecase }} | </span>
-                <span *ngIf="data.label !== ''">{{data.label | titlecase }} | </span>
-                <span *ngIf="data.price !== ''">{{data.price | currency  }} </span>
-              </h6>
-              <p>{{data.description}}</p>
+      <div *ngIf="recipiesForDisplay">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="form-group has-search">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" placeholder="Search" [formControl]="searchTerm" (keyup)='check()'>
+            </div>
+          </div>
+        </div>
+        <div class="row p-lg-5  h-100">
+          <div class="col-md-12">
+            <div class="card-columns">
+              <div class="card bg-dark-custom text-dark" *ngFor="let data of recipiesForDisplay">
+                <a [routerLink]="['details/' + data.id]">
+                  <img class="card-img" src="{{data.image}}" alt="Card image">
+                  <div class="card-img-overlay bg-dark-custom text-dark">
+                    <h4 class="card-title ">
+                      <span *ngFor="let char of data.name" [class.bg-warning]='checkHighlight(char)'>{{char}}</span>
+                    </h4>
+                    <h6>
+                      <span *ngIf="data.category !== ''">{{data.category | titlecase }} | </span>
+                      <span *ngIf="data.label !== ''">{{data.label | titlecase }} | </span>
+                      <span *ngIf="data.price !== ''">{{data.price | currency  }} </span>
+                    </h6>
+                    <p>{{data.description}}</p>
+                    <button class="btn btn-sm btn-dark btn-block">
+                      View recipie
+                    </button>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
-
+  </header>
+  
+  
+  <router-outlet></router-outlet>
+</section>
 <footer>
   <div class="container">
     <p>&copy; Your Website 2020. All Rights Reserved.</p>
@@ -46,3 +85,4 @@
     </ul>
   </div>
 </footer>
+

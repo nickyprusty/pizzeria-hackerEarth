@@ -1,1 +1,59 @@
-<p>details works!</p>
+<div class="p-3">
+    <button class="btn btn-sm" aria-label="Close" (click)="naviagteToHome()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <button type="button" class="close" aria-label="Close" (click)="naviagteToHome()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-content">
+    <div class="modal-body">
+        <div class="container p-lg-5">
+            <div *ngIf="!recipieDetails"> 
+                <app-loader></app-loader>
+            </div>
+            <div class="row" *ngIf="recipieDetails">
+                <div class="col-md-7">
+                    <img src="{{recipieDetails.image}}" alt="" width="300rem" height="150rem">
+                    <h4 class="mt-3">Ingredients</h4>
+                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h4>How to prepare</h4>
+                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Consectetur lorem donec massa sapien faucibus et molestie. Nibh cras pulvinar mattis nunc.Et sollicitudin ac orci phasellus egestas tellus rutrum. Eu consequat ac felis donec et odio pellentesque.</p>
+                </div>
+                <div class="col-md-5 text-right">
+                    <p>
+                        <span *ngIf="recipieDetails.category !== ''">{{recipieDetails.category | titlecase }} </span>
+                        <span *ngIf="recipieDetails.label !== ''"> | {{recipieDetails.label | titlecase }} </span>
+                    </p>
+                    <h3>{{recipieDetails.name}}</h3>
+                    <div *ngIf="recipieDetails.price !== ''">{{recipieDetails.price | currency  }} </div>
+                    <p>{{recipieDetails.description}}</p>
+                    <div class="d-flex text-center">
+                        <div class="details-box">
+                            <div>8</div>
+                            <div class="label-name">ingredients</div>
+                        </div>
+                        <div class="details-box">
+                            <div>220</div>
+                            <div class="label-name">bucks</div>
+                        </div>
+                        <div class="details-box">
+                            <div>25</div>
+                            <div class="label-name">minutes</div>
+                        </div>
+                    </div>
+                    <div class="font-weight-bolder pt-3 text-gray">FAVOURITE THIS RECIPIE 
+                        <input id="heart" type="checkbox" />
+                        <label for="heart">❤</label>
+                    </div>
+                    <hr/>
+                    <div class="form-group text-left">
+                        <textarea rows="3" class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-dark btn-block">ADD COMMENTS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

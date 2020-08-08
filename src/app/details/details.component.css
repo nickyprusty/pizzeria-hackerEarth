@@ -1,0 +1,61 @@
+p {
+    font-size: 0.8rem;
+}
+h4{
+    font-weight: bolder;
+    font-size: 1.25rem;
+}
+.details-box{
+    text-align: center;
+    background: black;
+    color: white;
+    padding: 0.75rem 0.5rem;
+    border-radius: 50%;
+    width: 4rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+}
+.label-name{
+    font-size: 9px;
+}
+.modal-content{
+    border: 0 !important;
+}
+
+
+[id="heart"] {
+  position: absolute;
+  left: -100vw;
+}
+
+[for="heart"] {
+  color: #aab8c2;
+  cursor: pointer;
+  font-size: 1.2rem;
+  align-self: center;  
+  transition: color 0.2s ease-in-out;
+}
+
+[for="heart"]:hover {
+  color: grey;
+}
+
+[for="heart"]::selection {
+  color: none;
+  background: transparent;
+}
+
+[for="heart"]::moz-selection {
+  color: none;
+  background: transparent;
+}
+
+[id="heart"]:checked + label {
+  color: #e2264d;
+  will-change: font-size;
+  animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
+}
+
+
+
+@keyframes heart {0%, 17.5% {font-size: 0;}}
